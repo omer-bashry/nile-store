@@ -6,8 +6,6 @@ html{
     font-family: 'Roboto', sans-serif;
 }
 .container {
-    padding-left: 15px;
-    padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -119,3 +117,250 @@ html{
     color: #777;
 }
 /* landing */
+/* categories */
+.categories{
+    padding: 100px 0px;
+}
+.heading {
+    text-align: center;
+}
+.heading h1{
+    letter-spacing: 3px;
+}
+.heading p{
+    width: 400px;
+    margin: 10px auto;
+    line-height: 2;
+    color: #777;
+}
+.categories .types{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.categories .types .category{
+    max-width: 320px;
+    padding: 20px;
+    text-align: center;
+}
+.categories .types .category img{
+    max-width: 220px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.categories .types .category button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #59ab6e;
+    border: 1px solid #59ab6e;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+.categories .types .category button:hover{
+    background-color: white;
+    color: #59ab6e;
+}
+
+/* categories */
+/* Featured Products */
+.featured{
+    padding: 100px 0 ;
+    background-color: #e9eef5;
+}
+.allProducts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 30px;
+}
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+}
+
+.product-info {
+    padding: 15px;
+}
+.rating-and-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.product-rating {
+    color: #f39c12;
+    font-size: 16px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #777;
+}
+
+.product-name {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+.product-reviews {
+    font-size: 14px;
+    color: #3498db;
+    margin: 10px 0;
+    cursor: pointer;
+}
+/* Featured Products */
+/* Footer */
+
+.footer {
+    background-color: #1a252f;
+    color: #cfd6e1;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+}
+.footer-column h1{
+    padding-bottom: 20px;
+    color: #59ab6e;
+}
+
+.footer-column p,
+.footer-column ul,
+.footer-column form {
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #cfd6e1;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.footer-column ul li a:hover {
+    padding-left: 4px;
+}
+
+.footer-column form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.footer-column form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-column form button:hover {
+    background-color: #2980b9;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.social-icons a {
+    color: #cfd6e1;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    border: 1px solid #7f8c8d;
+    padding: 10px;
+    border-radius: 60%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.social-icons a:hover{
+    background-color: #cfd6e1;
+    color: #1a252f;
+}
+
+.footer-bottom {
+    background-color: #1a252f;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom i {
+    color: red;
+}
+
+
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+}
+/* Footer */
