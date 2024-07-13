@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 html{
     font-family: 'Roboto', sans-serif;
@@ -493,5 +494,154 @@ html{
     height: 120px;
 }
 /* Brands */
-
 /* Cart */
+/* ============ Shop Style =============== */
+.buy-btn.shop{
+    width: 100%;
+}
+/* =========== About Style ==========*/
+/* Landing */
+.about{
+    padding: 100px 0;
+    background-color: #59ab6e;
+    color: white;
+     min-height: 91vh;
+}
+.about .about-items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.about .about-items .about-text{
+    max-width: 500px;
+    padding-left: 10px;
+}
+.about .about-items .about-text h1{
+    padding-bottom: 40px;
+}
+.about .about-items .about-text p {
+    line-height: 2;
+}
+.about .about-items .about-img{
+    width: 230px;
+    height: 230px;
+}
+@media (max-width: 746px) {
+    .about .about-items .about-text{
+        text-align: center;
+    }
+}
+/* Landing */
+/* Services */
+.services{
+    padding: 100px 0;
+    background-color: #e9eef5;
+}
+.services .services-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+    flex-wrap: wrap;
+}
+.services .services-container .single-service{
+    text-align: center;
+    background-color: white;
+     border-radius: 8px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    width: 220px;
+    height: 220px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.services .services-container .single-service:hover {
+    background-color: #59ab6e;
+    color: white ;
+}
+.services .services-container .single-service:hover i{
+    color: white;
+}
+.services .services-container .single-service i{
+    font-size: 80px;
+    color: #59ab6e;
+    margin-bottom: 10px;
+}
+.services .services-container .single-service h4{
+    padding-top: 20px;
+}
+/* Services */
+/* =============== Login ==================== */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.login-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px;
+}
+
+.login-form {
+    padding: 30px;
+    text-align: center;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.forgot-link {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-link a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: 0.3s;
+    border: 1px solid #4CAF50;
+}
+
+.login button:hover {
+    background-color: white;
+    color: #4CAF50;
+
+}
