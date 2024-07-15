@@ -6,8 +6,74 @@
     <link rel="stylesheet" href="view/css/style.css" />
     <link rel="stylesheet" href="view/fontawesome/css/all.min.css" />
     <title>Online Store</title>
+    <title>DB Operations</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function sendRequest(action, data) {
+          fetch('127.0.0.1/model/db.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: new URLSearchParams({
+                  action: action,
+                  ...data
+              })
+          })
+          .then(response => response.text())
+          .then(data => {
+              console.log(data);
+              document.getElementById('response').innerText = data;
+          })
+          .catch(error => console.error('Error:', error));
+      }
+
+      // Example usage
+      function createProduct() {
+          sendRequest('createProduct', { name: 'Product 1', price: 100 });
+      }
+
+      function readProducts() {
+          sendRequest('readProducts', {});
+      }
+
+      function updateProduct() {
+          sendRequest('updateProduct', { id: 1, name: 'Updated Product', price: 150 });
+      }
+
+      function deleteProduct() {
+          sendRequest('deleteProduct', { id: 1 });
+      }
+
+      function createReceipt() {
+          sendRequest('createReceipt', { product_id: 1, quantity: 5 });
+      }
+
+      function readReceipts() {
+          sendRequest('readReceipts', {});
+      }
+
+      function updateReceipt() {
+          sendRequest('updateReceipt', { id: 1, product_id: 1, quantity: 10 });
+      }
+
+      function deleteReceipt() {
+          sendRequest('deleteReceipt', { id: 1 });
+      }
+  </script>
+
   </head>
   <body>
+    <h1>DB Operations</h1>
+    <button onclick="createProduct()">Create Product</button>
+    <button onclick="readProducts()">Read Products</button>
+    <button onclick="updateProduct()">Update Product</button>
+    <button onclick="deleteProduct()">Delete Product</button>
+    <button onclick="createReceipt()">Create Receipt</button>
+    <button onclick="readReceipts()">Read Receipts</button>
+    <button onclick="updateReceipt()">Update Receipt</button>
+    <button onclick="deleteReceipt()">Delete Receipt</button>
+    <div id="response"></div>
     <!-- Navbar -->
     <div class="container">
       <div class="nav">
@@ -26,7 +92,8 @@
           <a href="view/pages/card.html"
             ><i class="fa-solid fa-cart-plus"></i
           ></a>
-          <a href=""><i class="fa-regular fa-user"></i></a>
+         <a href=""><i class="fa-regular fa-user"></i></a>
+        <form action="db.php" method="post"><input type="submit" value="readProducts"></form>
         </div>
       </div>
     </div>
