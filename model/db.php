@@ -62,6 +62,30 @@ class DB
         return $this->query($sql);
     }
 
+    // create admin 
+    public function createAdmin($name, $username,$password){
+        $sql = "INSERT INTO `admins`( `name`, `userName`, `password`) VALUES ($name,$username,$password)";
+        return $this-> query($sql);
+    }
+
+    // read admins
+    public function readAdmins(){
+        $sql = "SELECT * FROM `admins`";
+        return $this -> query($sql);
+    }
+
+    // update admin 
+    public function updateAdmin($id,$name, $username,$password){
+        $sql = "UPDATE `admins` SET `id`='$id',`name`='$name',`userName`='$username',`password`='$password' WHERE $id";
+        return $this -> query($sql);
+    }
+
+    // delete admin 
+    public function deleteAdmin($id){
+        $sql = "DELETE FROM `admins` WHERE $id";
+        return $this -> query($sql);
+    }
+    
     // Similar methods can be created for receipts table
     public function createReceipt($products, $date, $buyPrice, $sellPrice)
     {
@@ -92,6 +116,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new DB();
     $action = isset($_POST['action']) ? $_POST['action'] : '';
 
+
     switch ($action) {
         case 'createProduct':
             echo $db->createProduct($_POST['name'], $_POST['sellprice'], $_POST['buyPrice'], $_POST['quantity']);
@@ -121,6 +146,35 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Invalid action";
             break;
     }
+   switch($action) {
+       case 'createProduct':
+           echo $db->createProduct($_POST['name'], $_POST['sellPrice'],$_POST['buyPrice'],$_POST['quantity']);
+           break;
+       case 'readProducts':
+           echo $db->readProducts();
+           break;
+       case 'updateProduct':
+           echo $db->updateProduct($_POST['id'], $_POST['name'],$_POST['sellPrice'],$_POST['buyPrice'],$_POST['quantity']);
+           break;
+       case 'deleteProduct':
+           echo $db->deleteProduct($_POST['id']);
+           break;
+       case 'createReceipt':
+           echo $db->createReceipt($_POST['products'], $_POST['date'] , $_POST['buyPrice'],$_POST['sellPrice']);
+           break;
+       case 'readReceipts':
+           echo $db->readReceipts();
+           break;
+       case 'updateReceipt':
+           echo $db->updateReceipt($_POST['id'],$_POST['products'], $_POST['date'] , $_POST['buyPrice'],$_POST['sellPrice']);
+           break;
+       case 'deleteReceipt':
+           echo $db->deleteReceipt($_POST['id']);
+           break;
+       default:
+           echo "Invalid action";
+           break;
+   }
 } else {
     echo "Invalid request method";
 }
