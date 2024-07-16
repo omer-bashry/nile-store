@@ -10,58 +10,61 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       function sendRequest(action, data) {
-          fetch('127.0.0.1/model/db.php', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              body: new URLSearchParams({
-                  action: action,
-                  ...data
-              })
+        fetch("127.0.0.1/model/db.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            action: action,
+            ...data,
+          }),
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("response").innerText = data;
           })
-          .then(response => response.text())
-          .then(data => {
-              console.log(data);
-              document.getElementById('response').innerText = data;
-          })
-          .catch(error => console.error('Error:', error));
+          .catch((error) => console.error("Error:", error));
       }
 
       // Example usage
       function createProduct() {
-          sendRequest('createProduct', { name: 'Product 1', price: 100 });
+        sendRequest("createProduct", { name: "Product 1", price: 100 });
       }
 
       function readProducts() {
-          sendRequest('readProducts', {});
+        sendRequest("readProducts", {});
       }
 
       function updateProduct() {
-          sendRequest('updateProduct', { id: 1, name: 'Updated Product', price: 150 });
+        sendRequest("updateProduct", {
+          id: 1,
+          name: "Updated Product",
+          price: 150,
+        });
       }
 
       function deleteProduct() {
-          sendRequest('deleteProduct', { id: 1 });
+        sendRequest("deleteProduct", { id: 1 });
       }
 
       function createReceipt() {
-          sendRequest('createReceipt', { product_id: 1, quantity: 5 });
+        sendRequest("createReceipt", { product_id: 1, quantity: 5 });
       }
 
       function readReceipts() {
-          sendRequest('readReceipts', {});
+        sendRequest("readReceipts", {});
       }
 
       function updateReceipt() {
-          sendRequest('updateReceipt', { id: 1, product_id: 1, quantity: 10 });
+        sendRequest("updateReceipt", { id: 1, product_id: 1, quantity: 10 });
       }
 
       function deleteReceipt() {
-          sendRequest('deleteReceipt', { id: 1 });
+        sendRequest("deleteReceipt", { id: 1 });
       }
-  </script>
-
+    </script>
   </head>
   <body>
     <h1>DB Operations</h1>
@@ -83,17 +86,19 @@
         <div class="links">
           <ul>
             <li><a href="./index.html">Home</a></li>
-            <li><a href="/view/pages/shop.html">Shop</a></li>
-            <li><a href="/view/pages/about.html">About</a></li>
-            <li><a href="/view/pages/login.html">Login</a></li>
+            <li><a href="./view/pages/shop.html">Shop</a></li>
+            <li><a href="./view/pages/about.html">About</a></li>
+            <li><a href="./view/pages/login.html">Login</a></li>
           </ul>
         </div>
         <div class="icons">
-          <a href="view/pages/card.html"
+          <a href="./view/pages/card.html"
             ><i class="fa-solid fa-cart-plus"></i
           ></a>
-         <a href=""><i class="fa-regular fa-user"></i></a>
-        <form action="db.php" method="post"><input type="submit" value="readProducts"></form>
+          <a href=""><i class="fa-regular fa-user"></i></a>
+          <form action="db.php" method="post">
+            <input type="submit" value="readProducts" />
+          </form>
         </div>
       </div>
     </div>
